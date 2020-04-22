@@ -6,6 +6,9 @@
   transition: all 0.2s ease-in-out;
   background-color: #fff;
   cursor: unset;
+  margin-bottom: 2rem;
+  border: solid #ddd 1px;
+  border-bottom: 30px solid #ddd;
 }
 
 .user-card.default {
@@ -15,4 +18,5 @@
   transform: scale(1.05);
   background-color: rgb(26, 117, 255);
   color: #fff;
+  border-bottom: 30px solid #f09500;
 }

@@ -7,15 +7,18 @@ import Layout from '../layout/Layout';
 import Users from '../containers/Users/Users';
 import Router from '../router/Router';
 import UserCard from '../components/UserCard/UserCard';
+import Loader from '../components/Loader/Loader';
 
 import { Link, withRouter } from 'react-router-dom';
 
 import './Home.css';
 
 const HomePage = (props) => {
-  const { user, getUserSelected, location } = props || {};
+  const { user, getUserSelected, location, loader } = props || {};
   const { state } = location;
   const { id } = user || {};
+
+  console.log(loader);
 
   useEffect(() => {
     if (state) {
@@ -25,6 +28,7 @@ const HomePage = (props) => {
 
   return (
     <Layout>
+      <Loader show={loader} />
       <aside className="side-nav">
         <Users {...props} />
       </aside>
@@ -52,11 +56,13 @@ const HomePage = (props) => {
 };
 
 const mapStateProps = (state) => {
-  const { usersReducer, postsReducer } = state;
+  console.log(state);
+  const { usersReducer, postsReducer, loaderReducer } = state;
   return {
     posts: postsReducer.posts,
     users: usersReducer.users,
     user: usersReducer.user,
+    loader: loaderReducer.loader,
   };
 };
 

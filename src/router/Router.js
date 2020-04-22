@@ -16,6 +16,7 @@ const MainRouter = (props) => {
       <Route exact path={'/'} component={() => <Posts {...props} />} />
       <Route path={'/posts/user/:id'} component={() => <Posts {...props} />} />
       <Route path={'/fotos'} component={() => <Slide {...props} />} />
+      <Route component={() => <div>Conteúdo não encontrado</div>} />
     </Switch>
   );
 };
