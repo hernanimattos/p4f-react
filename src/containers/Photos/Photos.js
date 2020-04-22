@@ -9,14 +9,12 @@ const Slide = (props) => {
   const { photoid } = params || {};
   const [photoActiveUrl, setPhotoActiveUrl] = useState(null);
 
-  useEffect(() => {
-    if (photoid && photos.length > 0) {
-      thumbActive(parseInt(photoid));
-    }
-  }, [photoid, photos]);
-
   const thumbActive = (id) => {
-    const fotoActive = photos.find((photo) => photo.id === id);
+    // console.log(id);
+    const fotoActive = photos.find((photo) => {
+      return photo.id === id;
+    });
+
     setPhotoActiveUrl(fotoActive.url);
   };
 

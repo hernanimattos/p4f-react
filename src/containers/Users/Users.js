@@ -1,10 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import UserCard from '../../components/UserCard/UserCard';
 import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
-  const { users } = props || {};
+  const { users, location } = props || {};
+  const { pathname } = location;
+  const [pathNew, setPath] = useState(null);
+
+  useEffect(() => {
+    controlPath();
+  }, [pathname]);
+
+  const controlPath = () => {
+    const path = pathname.split('/');
+    path.pop();
+    setPath(path.join('/'));
+  };
 
   return (
     <Fragment>
@@ -12,7 +24,7 @@ const Users = (props) => {
         users.map((user) => (
           <NavLink
             to={{
-              pathname: `/posts/user/${user.id}`,
+              pathname: `${pathNew}/${user.id}`,
               state: `${user.id}`,
             }}
             key={user.id}>
