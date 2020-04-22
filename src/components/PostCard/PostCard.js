@@ -14,6 +14,7 @@ const PostCard = (props) => {
 
 PostCard.propTypes = {
   title: PropTypes.string,
+  body: PropTypes.string,
 };
 
 export default PostCard;

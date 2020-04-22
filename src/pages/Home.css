@@ -10,6 +10,11 @@
   background-color: rgb(26, 117, 255);
   height: fit-content;
 }
+.side-nav a {
+  color: inherit;
+
+ text-decoration: none;
+}
 .main-content__dinamic {
   padding-left: 1rem;
   min-width: 1px;

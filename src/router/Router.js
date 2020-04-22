@@ -8,7 +8,7 @@ const MainRouter = (props) => {
 
   useEffect(() => {
     getUsersAction();
-  }, []);
+  }, [getUsersAction]);
 
   return (
     <Switch>

@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import './UserCard.css';
 
 const UserCard = (props) => {
   const { name, email, company, primary, address } = props || {};
-  const { street, zypcode, suite, city } = address || {};
+  const { street, zipcode, suite, city } = address || {};
 
   return (
-    <div className={primary ? 'user-card default' : 'user-card '}>
+    <div className={!primary ? 'user-card default' : 'user-card '}>
       {!primary ? (
         <Fragment>
           <h2>{name}</h2>
@@ -21,12 +22,21 @@ const UserCard = (props) => {
             {street} - {suite}
           </p>
           <p>
-            {city} - CEP: {zypcode}
+            {city} - CEP: {zipcode}
           </p>
         </Fragment>
       )}
     </div>
   );
+};
+
+UserCard.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  street: PropTypes.string,
+  suite: PropTypes.string,
+  city: PropTypes.string,
+  zipcode: PropTypes.string,
 };
 
 export default UserCard;

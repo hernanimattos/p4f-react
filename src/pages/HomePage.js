@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { getPostsByUserId } from '../store/posts/posts.actions';
 import { getUsers, getUserSelected } from '../store/users/users.actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Layout from '../layout/Layout';
 import Users from '../containers/Users/Users';
 import Router from '../router/Router';
@@ -14,14 +15,13 @@ import './Home.css';
 const HomePage = (props) => {
   const { user, getUserSelected, location } = props || {};
   const { state } = location;
+  const { id } = user || {};
 
   useEffect(() => {
     if (state) {
       getUserSelected(state);
     }
-  }, [state]);
-
-  const { id } = user || {};
+  }, [state, getUserSelected]);
 
   return (
     <Layout>
@@ -66,6 +66,23 @@ const mapDispatchToProps = (dispatch) => {
     getPostsByUserId: (id) => dispatch(getPostsByUserId(id)),
     getUserSelected: (id) => dispatch(getUserSelected(id)),
   };
+};
+
+HomePage.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    address: PropTypes.shape({
+      street: PropTypes.string,
+      suite: PropTypes.string,
+      city: PropTypes.string,
+      zipcode: PropTypes.string,
+    }),
+  }),
+  getUserSelected: PropTypes.func,
+  location: PropTypes.shape({
+    state: PropTypes.string,
+  }),
 };
 
 export default connect(mapStateProps, mapDispatchToProps)(withRouter(HomePage));

@@ -5,7 +5,9 @@
   margin: 0.1rem;
   transition: all 0.2s ease-in-out;
   background-color: #fff;
+  cursor: unset;
 }
+
 .user-card.default {
   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2);
 }

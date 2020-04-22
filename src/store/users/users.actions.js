@@ -33,7 +33,8 @@ const getUserSelected = (id) => {
   return (dispatch, getState) => {
     const { usersReducer } = getState();
     const { users } = usersReducer;
-    const userSelected = users.find((user) => user.id == id);
+
+    const userSelected = users.find((user) => user.id === parseInt(id, 10));
 
     dispatch(getPostsByUserId(id));
     dispatch({

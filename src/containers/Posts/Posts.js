@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PostCard from '../../components/PostCard/PostCard';
+import PropTypes from 'prop-types';
 
 const Posts = (props) => {
   const { posts = {} } = props || {};
@@ -12,6 +13,15 @@ const Posts = (props) => {
         ))}
     </Fragment>
   );
+};
+
+Posts.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      body: PropTypes.string,
+    }),
+  ),
 };
 
 export default Posts;

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import UserCard from '../../components/UserCard/UserCard';
 import { NavLink } from 'react-router-dom';
 
@@ -24,6 +25,19 @@ const Users = (props) => {
         ))}
     </Fragment>
   );
+};
+
+Users.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      email: PropTypes.string,
+      company: PropTypes.shape({
+        name: PropTypes.string,
+      }),
+    }),
+  ),
 };
 
 export default Users;
