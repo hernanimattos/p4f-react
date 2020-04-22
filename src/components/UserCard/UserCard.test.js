@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitForDomChange } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import UserCard from './UserCard';
 
 test('Snap', () => {

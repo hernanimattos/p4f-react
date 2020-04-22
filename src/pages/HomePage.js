@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect } from 'react';
 import { getPostsByUserId } from '../store/posts/posts.actions';
 import { getUsers, getUserSelected } from '../store/users/users.actions';
 import { connect } from 'react-redux';
