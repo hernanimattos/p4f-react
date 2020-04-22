@@ -1,0 +1,22 @@
+.fotos-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.fotos-container__thumb {
+  overflow: hidden;
+  display: flex;
+  transition: ease;
+  width: 600px;
+  margin: 0 auto;
+}
+#thumb-control__left {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+#thumb-control__right {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}

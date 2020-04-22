@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { getPostsByUserId } from '../store/posts/posts.actions';
 import { getPhotos } from '../store/photos/photos.actions';
 import { getUsers, getUserSelected } from '../store/users/users.actions';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import Layout from '../layout/Layout';
 import Users from '../containers/Users/Users';
 import Router from '../router/Router';
 import UserCard from '../components/UserCard/UserCard';
 import Loader from '../components/Loader/Loader';
-
-import { Link, withRouter } from 'react-router-dom';
 
 import './Home.css';
 
