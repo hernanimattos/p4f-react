@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Posts from '../containers/Posts/Posts';
 import Slide from '../containers/Slide/Slide';
 import { Route, Switch } from 'react-router-dom';
@@ -17,6 +18,10 @@ const MainRouter = (props) => {
       <Route path={'/fotos'} component={() => <Slide {...props} />} />
     </Switch>
   );
+};
+
+MainRouter.propTypes = {
+  getUsersAction: PropTypes.func,
 };
 
 export default MainRouter;
