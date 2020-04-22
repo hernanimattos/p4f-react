@@ -11,7 +11,6 @@ const getUsers = () => {
     dispatch(loderInit());
     return Http.get('/users')
       .then((res) => {
-        dispatch(loderInit());
         return dispatch({
           type: GET_USERS,
           users: res.data,
@@ -25,6 +24,7 @@ const getUsers = () => {
       })
       .then((res) => {
         dispatch(getPostsByUserId(res.user.id));
+        dispatch(loderFinish());
       })
       .catch((erro) => {
         console.log(erro);
