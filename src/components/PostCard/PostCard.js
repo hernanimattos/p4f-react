@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './PostCard.css';
 
 const PostCard = (props) => {
@@ -9,6 +10,10 @@ const PostCard = (props) => {
       <p>{body}</p>
     </div>
   );
+};
+
+PostCard.propTypes = {
+  title: PropTypes.string,
 };
 
 export default PostCard;

@@ -6,7 +6,7 @@ const UserCard = (props) => {
   const { street, zypcode, suite, city } = address || {};
 
   return (
-    <div className={primary ? 'user-card ' : 'user-card default'}>
+    <div className={primary ? 'user-card default' : 'user-card '}>
       {!primary ? (
         <Fragment>
           <h2>{name}</h2>

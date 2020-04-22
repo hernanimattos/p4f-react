@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snap 1`] = `
+"props => {
+  const {
+    title,
+    body
+  } = props || {};
+  return /*#__PURE__*/_react.default.createElement(\\"div\\", {
+    className: \\"post-card\\",
+    __self: void 0,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/_react.default.createElement(\\"h2\\", {
+    __self: void 0,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 7
+    }
+  }, title), /*#__PURE__*/_react.default.createElement(\\"p\\", {
+    __self: void 0,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 7
+    }
+  }, body));
+}"
+`;

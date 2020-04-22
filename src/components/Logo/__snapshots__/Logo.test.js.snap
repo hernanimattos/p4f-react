@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snap 1`] = `
+"() => {
+  return /*#__PURE__*/_react.default.createElement(_react.Fragment, {
+    __self: void 0,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/_react.default.createElement(\\"img\\", {
+    className: \\"logo\\",
+    src: \\"https://apostasesportivas24.com/images/apostasesportivas24/logo_p4f.jpg\\",
+    alt: \\"p4f\\",
+    __self: void 0,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 7
+    }
+  }));
+}"
+`;
