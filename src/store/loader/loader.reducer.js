@@ -4,7 +4,7 @@ const initialState = {
   loader: '',
 };
 
-const postReducer = (state = initialState, action) => {
+const loaderReducer = (state = initialState, action) => {
   switch (action.type) {
     case LODER_INIT:
       return {
@@ -22,4 +22,4 @@ const postReducer = (state = initialState, action) => {
   }
 };
 
-export default postReducer;
+export default loaderReducer;

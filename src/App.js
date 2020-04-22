@@ -8,12 +8,13 @@ import { reducers } from './store';
 import HomePage from './pages/HomePage';
 import './App.css';
 
-const { usersReducer, postsReducer, loaderReducer } = reducers;
+const { usersReducer, postsReducer, loaderReducer, photosReducer } = reducers;
 
 const reducer = combineReducers({
   usersReducer,
   postsReducer,
   loaderReducer,
+  photosReducer,
 });
 const store = createStore(
   reducer,

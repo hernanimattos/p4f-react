@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { getPostsByUserId } from '../store/posts/posts.actions';
+import { getPhotos } from '../store/photos/photos.actions';
 import { getUsers, getUserSelected } from '../store/users/users.actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -14,17 +15,21 @@ import { Link, withRouter } from 'react-router-dom';
 import './Home.css';
 
 const HomePage = (props) => {
-  const { user, getUserSelected, location, loader } = props || {};
-  const { state } = location;
-  const { id } = user || {};
+  const { user, getUserSelected, location, loader, getPhotos } = props || {};
+  const { state, params } = location || {};
 
-  console.log(loader);
+  const { photoid } = params || {};
+  const { id } = user || {};
 
   useEffect(() => {
     if (state) {
       getUserSelected(state);
     }
-  }, [state, getUserSelected]);
+
+    if (photoid) {
+      getPhotos(photoid);
+    }
+  }, [state, getUserSelected, photoid]);
 
   return (
     <Layout>
@@ -44,7 +49,15 @@ const HomePage = (props) => {
               </Link>
             </li>
             <li>
-              <Link to="/fotos"> fotos</Link>
+              <Link
+                to={{
+                  pathname: `/fotos/user/${state || id}`,
+                  params: {
+                    photoid: `${state || id}`,
+                  },
+                }}>
+                fotos
+              </Link>
             </li>
           </ul>
           {user && <UserCard name={user.name} address={user.address} primary />}
@@ -56,13 +69,13 @@ const HomePage = (props) => {
 };
 
 const mapStateProps = (state) => {
-  console.log(state);
-  const { usersReducer, postsReducer, loaderReducer } = state;
+  const { usersReducer, postsReducer, loaderReducer, photosReducer } = state;
   return {
     posts: postsReducer.posts,
     users: usersReducer.users,
     user: usersReducer.user,
     loader: loaderReducer.loader,
+    photos: photosReducer.photos,
   };
 };
 
@@ -71,6 +84,7 @@ const mapDispatchToProps = (dispatch) => {
     getUsersAction: () => dispatch(getUsers()),
     getPostsByUserId: (id) => dispatch(getPostsByUserId(id)),
     getUserSelected: (id) => dispatch(getUserSelected(id)),
+    getPhotos: (id) => dispatch(getPhotos(id)),
   };
 };
 
