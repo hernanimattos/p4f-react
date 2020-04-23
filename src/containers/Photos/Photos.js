@@ -10,7 +10,6 @@ const Slide = (props) => {
   const [photoActiveUrl, setPhotoActiveUrl] = useState(null);
 
   const thumbActive = (id) => {
-    // console.log(id);
     const fotoActive = photos.find((photo) => {
       return photo.id === id;
     });

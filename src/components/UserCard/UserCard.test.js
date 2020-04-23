@@ -7,12 +7,12 @@ test('Snap', () => {
   expect(UserCardCP).toMatchSnapshot();
 });
 
-test('PostCard class', () => {
+test('UserCard class', () => {
   const { container } = render(<UserCard />);
-  expect(container.firstChild).toHaveClass('user-card');
+  expect(container.firstChild).toHaveClass('user-card default');
 });
 
-test('PostCard class', () => {
+test('UserCard class', () => {
   const props = {
     address: {
       street: 'aaaaa',
@@ -21,7 +21,7 @@ test('PostCard class', () => {
     email: 'email',
   };
   const { getByText, container } = render(<UserCard primary {...props} />);
-  expect(container.firstChild).toHaveClass('user-card default');
+  expect(container.firstChild).toHaveClass('user-card');
   expect(getByText('nome')).toBeInTheDocument();
   expect(getByText('Endereço')).toBeInTheDocument();
 });
